@@ -70,7 +70,7 @@ int main(int argc, char *argv[]) {
     tmp_vec = (int *) malloc(TAM*sizeof(int));
 
     FILE *arquivo_entrada;
-    arquivo_entrada = fopen("numero.txt", "r");
+    arquivo_entrada = fopen("numeros.txt", "r");
 
     int i;
     for(i = 0; i < TAM; i++) {
