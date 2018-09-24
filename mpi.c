@@ -57,7 +57,6 @@ int main(int argc, char *argv[]) {
     offset += residue;
   }
 
-  printf("rank %d, n %d, offset %d\n", rank, n, offset);
 
   vet = (int *)malloc(n*sizeof(int));
   int *tmp_vec = NULL;
@@ -145,8 +144,6 @@ int main(int argc, char *argv[]) {
 
       contador += tmp_cont;
 
-      printf("Contador: %d\n", contador);
-
       indices = (int *)realloc(indices, contador*(sizeof(int)));
       MPI_Recv(&(indices[idx]), tmp_cont, MPI_INT, i, 3, MPI_COMM_WORLD, &status);
 
@@ -167,7 +164,7 @@ int main(int argc, char *argv[]) {
     free(tmp_vec);
 
     FILE *arquivo_saida = fopen("saida.txt", "w+");
-    fprintf(arquivo_saida, "%d", contador);
+    fprintf(arquivo_saida, "%d\n", contador);
     if(contador > 0) {
       for(i = 0; i < contador; i++) {
         fprintf(arquivo_saida, "%d ", indices[i]);
